@@ -22,3 +22,7 @@ Deep-Face-Blurring is a Python-based tool for detecting and anonymizing human fa
 - OpenCV : Best Library for working with images
 - Numpy : Best Library for working with arrays in python
 - MatPlotLib : Library for showing the charts in python
+
+## 💻 Run the Notebook on Google Colab
+
+You can easily run this code on google colab by just clicking this badge [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AsadiAhmad/Deep-Face-Blurring/blob/main/Code/Deep_Face_Blurring.ipynb)
