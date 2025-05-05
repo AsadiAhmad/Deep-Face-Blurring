@@ -136,6 +136,10 @@ plt.subplot(132),plt.imshow(canvas[...,::-1]),plt.title('Detected Faces');
 plt.subplot(133),plt.imshow(blured_image[...,::-1]),plt.title('Blured Faces');
 ```
 
+<div display=flex align=center>
+  <img src="/Pictures/result.jpg"/>
+</div>
+
 ## 🪪 License
 
 This project is licensed under the MIT License.
