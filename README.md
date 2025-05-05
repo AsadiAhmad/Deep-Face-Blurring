@@ -64,7 +64,47 @@ image = cv.imread('many_faces.jpg')
   <img src="/Pictures/many_faces.jpg" width="400px"/>
 </div>
 
+### Step 4: Initialize YuNet face detector
 
+```sh
+height, width, _ = image.shape
+
+detector = cv.FaceDetectorYN.create(
+    "face_detection_yunet_2023mar.onnx",
+    "",
+    (width, height),  # Input size (width, height)
+    0.8,              # Score threshold
+    0.3,              # NMS threshold
+    5000              # Top-K candidates
+)
+# we can handel the input size by set the size and the model just reize that in input
+# bigger size more accuracy but decrease the speed
+
+detector.setInputSize((width, height))
+result = detector.detect(image)
+```
+
+### Step 5: Detect All faces
+
+```sh
+thickness=5
+canvas = image.copy()
+faces = []
+if result[1] is not None: # check if the face is detected or not
+    for idx, face in enumerate(result[1]):
+        coords = face[:-1].astype(np.int32)
+        x, y, w, h = coords[:4]
+        if x < 0:
+            x = 0
+        if y < 0:
+            y = 0
+        faces.append([x, y, w, h])
+        cv.rectangle(canvas, (x, y), (x+w, y+h), (0, 255, 0), thickness)
+```
+
+<div display=flex align=center>
+  <img src="/Pictures/Detected.jpg" width="400px"/>
+</div>
 
 ## 🪪 License
 
