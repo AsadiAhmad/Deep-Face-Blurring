@@ -106,6 +106,36 @@ if result[1] is not None: # check if the face is detected or not
   <img src="/Pictures/Detected.jpg" width="400px"/>
 </div>
 
+### Step 6: Blur All faces
+
+```sh
+blured_faces = []
+for face in faces:
+    x, y, w, h = face[:4]
+    face_shape = image[y:y+h , x:x+w]
+    blured_faces.append([cv.medianBlur(face_shape, 55), x, y, w, h])
+```
+
+```sh
+blured_image = image.copy()
+for face in blured_faces:
+    face_border, x, y, w, h = face[:5]
+    blured_image[y:y+h , x:x+w] = face_border
+```
+
+<div display=flex align=center>
+  <img src="/Pictures/Blurred.jpg" width="400px"/>
+</div>
+
+### Step 7: Show Blured Image
+
+```sh
+plt.figure(figsize=[12,4])
+plt.subplot(131),plt.imshow(image[...,::-1]),plt.title('Input');
+plt.subplot(132),plt.imshow(canvas[...,::-1]),plt.title('Detected Faces');
+plt.subplot(133),plt.imshow(blured_image[...,::-1]),plt.title('Blured Faces');
+```
+
 ## 🪪 License
 
 This project is licensed under the MIT License.
