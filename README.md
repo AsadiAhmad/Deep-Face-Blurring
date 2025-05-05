@@ -26,3 +26,46 @@ Deep-Face-Blurring is a Python-based tool for detecting and anonymizing human fa
 ## 💻 Run the Notebook on Google Colab
 
 You can easily run this code on google colab by just clicking this badge [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AsadiAhmad/Deep-Face-Blurring/blob/main/Code/Deep_Face_Blurring.ipynb)
+
+## 📝 Tutorial
+
+### Step 1: Import Libraries
+
+we need to import these libraries :
+
+`cv2`, `numpy`, `matplotlib`
+
+```sh
+import numpy as np
+import cv2 as cv
+import matplotlib.pyplot as plt
+```
+
+### Step 2: Download Resources
+
+We need to download the YuNet model to the github so please have attention in donwloading new models.
+
+also We need to download the images from my `Github` repository or you can download your own sets.
+
+```sh
+!wget https://raw.githubusercontent.com/AsadiAhmad/Image-Matching/main/Pictures/ps5_games.jpg -O ps5_games.jpg
+!wget https://raw.githubusercontent.com/AsadiAhmad/Image-Matching/main/Pictures/gost_of_tsushima.jpg -O gost_of_tsushima.jpg
+```
+
+### Step 3: Load Image
+
+We need to load images into `python` variables we ues `OpenCV` library to read the images also the format of the images are `nd.array`.
+
+```sh
+image = cv.imread('many_faces.jpg')
+```
+
+<div display=flex align=center>
+  <img src="/Pictures/many_faces.jpg" width="400px"/>
+</div>
+
+
+
+## 🪪 License
+
+This project is licensed under the MIT License.
