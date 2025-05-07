@@ -37,7 +37,7 @@ we need to import these libraries :
 
 `cv2`, `numpy`, `matplotlib`
 
-```sh
+```python
 import numpy as np
 import cv2 as cv
 import matplotlib.pyplot as plt
@@ -58,7 +58,7 @@ also We need to download the images from my `Github` repository or you can downl
 
 We need to load images into `python` variables we ues `OpenCV` library to read the images also the format of the images are `nd.array`.
 
-```sh
+```python
 image = cv.imread('many_faces.jpg')
 ```
 
@@ -68,7 +68,7 @@ image = cv.imread('many_faces.jpg')
 
 ### Step 4: Initialize YuNet face detector
 
-```sh
+```python
 height, width, _ = image.shape
 
 detector = cv.FaceDetectorYN.create(
@@ -88,7 +88,7 @@ result = detector.detect(image)
 
 ### Step 5: Detect All faces
 
-```sh
+```python
 thickness=5
 canvas = image.copy()
 faces = []
@@ -110,7 +110,7 @@ if result[1] is not None: # check if the face is detected or not
 
 ### Step 6: Blur All faces
 
-```sh
+```python
 blured_faces = []
 for face in faces:
     x, y, w, h = face[:4]
@@ -118,7 +118,7 @@ for face in faces:
     blured_faces.append([cv.medianBlur(face_shape, 55), x, y, w, h])
 ```
 
-```sh
+```python
 blured_image = image.copy()
 for face in blured_faces:
     face_border, x, y, w, h = face[:5]
@@ -131,7 +131,7 @@ for face in blured_faces:
 
 ### Step 7: Show Blured Image
 
-```sh
+```python
 plt.figure(figsize=[12,4])
 plt.subplot(131),plt.imshow(image[...,::-1]),plt.title('Input');
 plt.subplot(132),plt.imshow(canvas[...,::-1]),plt.title('Detected Faces');
